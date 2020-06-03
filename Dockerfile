@@ -1,6 +1,8 @@
 # Compile stage
 FROM golang:1.13.8 AS build-env
 
+ENV GOPROXY https://goproxy.cn,direct
+
 # Build Delve
 RUN go get github.com/go-delve/delve/cmd/dlv
 
