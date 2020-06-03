@@ -1,0 +1,18 @@
+Index: main.go
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main\n\nimport (\n\t\"fmt\"\n\t\"log\"\n\t\"net/http\"\n)\n\nfunc main() {\n\t// Set the flags for the logging package to give us the filename in the logs\n\tlog.SetFlags(log.LstdFlags | log.Lshortfile)\n\n\tlog.Println(\"starting server...\")\n\thttp.HandleFunc(\"/\", func(w http.ResponseWriter, r *http.Request) {\n\t\tw.WriteHeader(http.StatusOK)\n\t\t_, _ = fmt.Fprintln(w, `Hello, visitor!`)\n\t})\n\tlog.Fatal(http.ListenAndServe(\":8000\", nil))\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- main.go	(revision f40ef01fdaf05415f66c825e64c86e96b11bff7e)
++++ main.go	(date 1590645729558)
+@@ -13,7 +13,7 @@
+ 	log.Println("starting server...")
+ 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+ 		w.WriteHeader(http.StatusOK)
+-		_, _ = fmt.Fprintln(w, `Hello, visitor!`)
++		_, _ = fmt.Fprintln(w, `Hello, World!`)
+ 	})
+ 	log.Fatal(http.ListenAndServe(":8000", nil))
+ }
